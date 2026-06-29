@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>世界杯球星猜猜猜</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <main class="container">
+      <section id="start-screen" class="screen active">
+        <div class="header">
+          <span class="logo">⚽</span>
+          <h1 class="title">世界杯球星猜猜猜</h1>
+          <p class="subtitle">考验你足球知识的时候到了！</p>
+        </div>
+
+        <div class="rules-card">
+          <h2 class="rules-title">🎮 游戏规则</h2>
+          <div class="rules-list">
+            <p class="rule-item">🔍 系统随机选一位球星，你来猜是谁</p>
+            <p class="rule-item">💡 每次猜错会多揭示一条线索</p>
+            <p class="rule-item">🎯 最多 7 次机会，看看你能用几次猜中</p>
+            <p class="rule-item">🌍 数据库包含 <span id="star-count">0</span> 位世界杯球星</p>
+          </div>
+        </div>
+
+        <div class="clues-preview">
+          <h2 class="preview-title">线索类型</h2>
+          <div class="preview-grid">
+            <div class="preview-item">
+              <span class="preview-icon">🌍</span>
+              <span class="preview-label">大洲</span>
+            </div>
+            <div class="preview-item">
+              <span class="preview-icon">🏆</span>
+              <span class="preview-label">夺冠次数</span>
+            </div>
+            <div class="preview-item">
+              <span class="preview-icon">🎂</span>
+              <span class="preview-label">年龄段</span>
+            </div>
+            <div class="preview-item">
+              <span class="preview-icon">🔤</span>
+              <span class="preview-label">首字母</span>
+            </div>
+            <div class="preview-item">
+              <span class="preview-icon">🇺🇳</span>
+              <span class="preview-label">国家队</span>
+            </div>
+          </div>
+        </div>
+
+        <button id="start-button" class="start-btn">⚽ 开始猜测</button>
+      </section>
+
+      <section id="game-screen" class="screen hidden">
+        <div class="game-container">
+          <div class="top-bar">
+            <div>
+              <span id="guess-count" class="guess-count">1/7</span>
+            </div>
+            <div id="top-hint" class="top-hint">👇 输入球星名字开始猜测</div>
+          </div>
+
+          <div id="table-section" class="table-section hidden">
+            <div class="table-header">
+              <span class="col col-name">球员</span>
+              <span class="col col-country">国家</span>
+              <span class="col col-continent">大洲</span>
+              <span class="col col-wc">🏆冠军</span>
+              <span class="col col-age">年龄</span>
+            </div>
+            <div id="guesses-list" class="guesses-list"></div>
+          </div>
+
+          <div class="input-area" id="input-area">
+            <div id="candidates-dropdown" class="candidates-dropdown hidden"></div>
+            <div class="input-row">
+              <input id="guess-input" class="guess-input" placeholder="输入球星名字（中/英文）" autocomplete="off" />
+              <button id="submit-button" class="submit-btn">猜！</button>
+            </div>
+            <p id="error-msg" class="error-msg"></p>
+          </div>
+
+          <div id="result-area" class="result-area hidden">
+            <div id="result-win" class="result-body hidden">
+              <div class="result-emoji">🎉</div>
+              <div class="result-title">恭喜猜对！</div>
+              <div id="answer-show" class="answer-show"></div>
+              <div id="answer-detail" class="answer-detail"></div>
+              <div id="guess-summary" class="guess-summary"></div>
+            </div>
+            <div id="result-lose" class="result-body hidden">
+              <div class="result-emoji">😢</div>
+              <div class="result-title">次数用完了！</div>
+              <div id="lose-answer-show" class="answer-show"></div>
+              <div id="lose-answer-detail" class="answer-detail"></div>
+            </div>
+            <div class="result-btns">
+              <button id="restart-button" class="btn-restart">🔄 再来一局</button>
+              <button id="back-button" class="btn-back">🏠 返回菜单</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
